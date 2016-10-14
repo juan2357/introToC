@@ -31,7 +31,7 @@ int main() {
     x++;
   }
   //Takes user input to display messages in a do/while loop
-  x = 0;
+
   do {
     printf("I like to have fun.\n");
     x++;
@@ -77,8 +77,8 @@ void GetNextNumber(int*zptr) {
     printf("Have a Great Day!\n");
   }
   else {
-    printf("please choose another number or -1 to exit\n");
-    scanf("%d", zptr);
+      printf("please choose another number or -1 to exit\n");
+      scanf("%d", zptr);
   }
 }
 //function used to return the sum of the previous two addends
