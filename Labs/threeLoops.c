@@ -31,19 +31,31 @@ int main() {
     x++;
   }
   //Takes user input to display messages in a do/while loop
-
+  x = 1;
   do {
     printf("I like to have fun.\n");
     x++;
    }
-   while(x <= y);
+  while(x <= y);
   //Takes first user input
   z = GetNextNum();
-  printf("You entered %d\n", z);
+  if (z == -1) {
+    printf("Have a Great Day!\n");
+    return 0;
+  }
+  else {
+    printf("You entered %d\n", z);
+  }
   //Takes second user input and displays sum of previous user ipnut with current user input
   GetNextNumber(&zptr);
   total = AddSum(z, zptr);
-  printf("You chose %d, you new number is %d\n",z, total);
+  if (zptr > 0) {
+    printf("You chose %d, you new number is %d\n",z, total);
+  }
+  else {
+    printf("Have a Great Day!\n");
+    return 0;
+  }
 }
 //function definition
 //Prompts user for a number to display number of messages
@@ -61,25 +73,16 @@ int GetNum() {
 }
 //prompts user for a number to be used as first addend
 int GetNextNum(int a) {
-  int userinput =0;
-  if (userinput == -1) {
-    printf("Have a Great Day!\n");
-  }
-  else {
-    printf("Please enter a number or -1 to exit:\n");
-    scanf("%d", &userinput);
-  }
+  int userinput = 0;
+  printf("Please enter a number or -1 to exit:\n");
+  scanf("%d", &userinput);
+
   return userinput;
 }
 //Prompts user for a second addend
 void GetNextNumber(int*zptr) {
-  if (*zptr == -1) {
-    printf("Have a Great Day!\n");
-  }
-  else {
-      printf("please choose another number or -1 to exit\n");
-      scanf("%d", zptr);
-  }
+  printf("please choose another number or -1 to exit\n");
+  scanf("%d", zptr);
 }
 //function used to return the sum of the previous two addends
 int AddSum(int a, int b) {
