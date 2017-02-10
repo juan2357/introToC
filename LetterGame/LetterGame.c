@@ -51,7 +51,7 @@ int main() {
 
   int SingleGame(char file_letter) {
     //Gets user input and copares to file_letter
-    
+
     int numGuesses = 0;
     while(numGuesses < MAXGUESSES) {
       char RetrieveGuess = 0;
