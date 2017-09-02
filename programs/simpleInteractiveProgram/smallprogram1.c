@@ -8,5 +8,15 @@
 #include <stdio.h>   //printf, scanf definitions
 int main(void) {
 
+  double number;
+
+  printf("Hello there, my name is Juan\n");
+
+  printf("Please enter a number: ");
+  scanf(" %lf", &number);
+  printf("The product of %.0f and 3 is %.0f\n", number, (number)*3);
+
+  
+
   return (0);
 }
