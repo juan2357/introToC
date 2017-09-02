@@ -1,7 +1,7 @@
 // Name: Juan Perez
-//Date:
+//Date: September 2, 2017
 //COP 2220
-/* Description: */
+/* Simple Interactive Program */
 
 //precompiler directives
 #define _CRT_SECURE_NO_WARNINGS //to avoid scanf warning or error
