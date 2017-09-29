@@ -11,21 +11,24 @@
 int GetInt(void);
 double GetDouble(void);
 char GetInitial(void);
-// int FunctionOne(int x, double y);
+int FunctionOne(int x, double y);
 // int FunctionTwo(char x);
 
 int main() {
   //variables
-  // int num1;
-  // double num2;
+  int num1;
+  double num2;
   // char letter;
+  num1 = GetInt();
+  num2 = GetDouble();
   //Returns user input from GetInt function
-  printf("The number you entered is %d\n", GetInt());
+  printf("The number you entered is %d\n", num1);
   //returns user input from GetDouble function
-  printf("The number you entered is %.2f\n", GetDouble());
+  printf("The number you entered is %.2f\n", num2);
   //returns user input from GetInitial finction
   printf("The letter you entered is %c\n", GetInitial());
-
+  //returns user input and prints FunctionOne
+  FunctionOne(num1, num2);
   return 0;
 }
 //Gets number from user
@@ -48,4 +51,13 @@ char GetInitial(void){
   printf("Please enter a letter\n");
   scanf(" %c", &letter);
   return letter;
+}
+// takes two arguments, an integer  and a double
+// adds 10 to the integer
+// multiplies the double argument by .5 and prints the result onto the screen
+// returns the result of integer addition
+int FunctionOne(int x, double y){
+  int num1 = x + 10;
+  printf("Your number multplied by half is %.2lf\n", y*.5);
+  return num1;
 }
