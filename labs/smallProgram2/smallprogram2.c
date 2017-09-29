@@ -12,23 +12,27 @@ int GetInt(void);
 double GetDouble(void);
 char GetInitial(void);
 int FunctionOne(int x, double y);
-// int FunctionTwo(char x);
+int FunctionTwo(char x);
 
 int main() {
   //variables
   int num1;
   double num2;
-  // char letter;
+  char letter;
+
   num1 = GetInt();
   num2 = GetDouble();
+  letter = GetInitial();
   //Returns user input from GetInt function
   printf("The number you entered is %d\n", num1);
   //returns user input from GetDouble function
   printf("The number you entered is %.2f\n", num2);
   //returns user input from GetInitial finction
-  printf("The letter you entered is %c\n", GetInitial());
+  printf("The letter you entered is %c\n", letter);
   //returns user input and prints FunctionOne
   FunctionOne(num1, num2);
+  //returns user letter input and capitalizes letter
+  FunctionTwo(letter);
   return 0;
 }
 //Gets number from user
@@ -60,4 +64,16 @@ int FunctionOne(int x, double y){
   int num1 = x + 10;
   printf("Your number multplied by half is %.2lf\n", y*.5);
   return num1;
+}
+int FunctionTwo(char x){
+// takes one character argument and returns and integer
+//change the letter to uppercase
+char letter = toupper(x);
+  printf("The letter you entered capitalized is %c\n", letter);
+    if ((letter >= 'A') && (letter <= 'M')){
+      printf("1\n");
+    } else {
+      printf("2\n");
+    }
+  return letter;
 }
