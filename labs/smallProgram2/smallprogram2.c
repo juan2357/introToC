@@ -23,12 +23,6 @@ int main() {
   num1 = GetInt();
   num2 = GetDouble();
   letter = GetInitial();
-  //Returns user input from GetInt function
-  printf("The number you entered is %d\n", num1);
-  //returns user input from GetDouble function
-  printf("The number you entered is %.2f\n", num2);
-  //returns user input from GetInitial finction
-  printf("The letter you entered is %c\n", letter);
   //returns user input and prints FunctionOne
   FunctionOne(num1, num2);
   //returns user letter input and capitalizes letter
@@ -40,13 +34,18 @@ int GetInt(void){
   int num1;
   printf("Please enter an integer\n");
   scanf("%d", &num1);
+  //Returns user input from GetInt function
+  printf("The number you entered is %d\n", num1);
   return num1;
+
 }
 //Gets double from user
 double GetDouble(void){
   double num2;
   printf("Please enter a double\n");
   scanf(" %lf", &num2);
+  //returns user input from GetDouble function
+  printf("The number you entered is %.2f.\n", num2);
   return num2;
 }
 //gets a letter from user
@@ -54,6 +53,8 @@ char GetInitial(void){
   char letter;
   printf("Please enter a letter\n");
   scanf(" %c", &letter);
+  //returns user input from GetInitial finction
+  printf("The letter you entered is %c.\n", letter);
   return letter;
 }
 // takes two arguments, an integer  and a double
@@ -62,18 +63,18 @@ char GetInitial(void){
 // returns the result of integer addition
 int FunctionOne(int x, double y){
   int num1 = x + 10;
-  printf("Your number multplied by half is %.2lf\n", y*.5);
+  printf("Your number multplied by half is %.2lf.\n", y*.5);
   return num1;
 }
 int FunctionTwo(char x){
 // takes one character argument and returns and integer
 //change the letter to uppercase
 char letter = toupper(x);
-  printf("The letter you entered capitalized is %c\n", letter);
+  printf("The letter you entered capitalized is %c.\n", letter);
     if ((letter >= 'A') && (letter <= 'M')){
-      printf("1\n");
+      printf("Because you entered a letter between A and M, you get a 1.\n");
     } else {
-      printf("2\n");
+      printf("Because you entered a letter between N and Z, you get a 2.\n");
     }
   return letter;
 }
