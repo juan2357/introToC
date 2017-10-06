@@ -38,6 +38,7 @@ int main()
 	int numGames, i = 0;
   char solution;
 	char letter;//letter from file
+  char guess;
 
 	//display game rules
   GameRules();
@@ -50,10 +51,14 @@ int main()
   input = fopen("letterList.txt", "r");
   fscanf(input, " %c", &letter);
   fprintf(input, "%c\n", letter);
+
+
 	//this for loop will allow the player to play more than one game
 	//without recompiling
-	for (i = 0; i < numGames; i++)
+	for (i = 1; i <= numGames; i++)
 	{
+    guess = GetTheGuess();
+    printf("Get ready to play game %d\n", i);
 		//get a solution letter from file - use fscanf
 		//change the solution to lowercase
 		//print the solution back onto the screen to test
@@ -74,6 +79,13 @@ void GameRules(){
   printf("For each game, you will have 5 chances to guess each letter\n");
   printf("Let's begin: \n");
 }
+char GetTheGuess(){
+  char c;
+  printf("Guess the letter: \n");
+  scanf(" %c\n", &c);
+  return c;
+}
+
 //this function runs one game.
 //input: character from the file, void return type
 //all other functions to Play one round of a game
@@ -89,7 +101,6 @@ void GuessTheLetter(char solution)
 	{
 		//get a guess from the user  by calling the GetTheGuess function
 		//change the guess to lowercase
-
 	    	//win = call the function to compare the guess with the solution
 		numGuesses++;//count the number of guesses so far
 	}
