@@ -9,19 +9,24 @@
 
 
 
-//paste all the function prototypes here
-//with the comments
+//FUNCTION PROTOTYPES
+//this function provides intructions
+//on how to play the game
+void GameRules();
 
+void GuessTheLetter(char);
 
 int main()
 {
 	//declare additional variables
 	//declare FILE pointer
 	int numGames, i = 0;
+  char solution;
 
 	char letter;//letter from file
 
 	//display game rules
+  GameRules();
 
 	//Ask and get number of games to play
 
@@ -43,7 +48,13 @@ int main()
 	//close file pointer
 	return 0;
 }
-
+//prints games rules
+void GameRules(){
+  printf("Welcome to the Letter Guessing Game.\n");
+  printf("First, you will enter the number of fames you want to play (1 - 8)\n");
+  printf("For each game, you will have 5 chances to guess each letter\n");
+  printf("Let's begin: \n");
+}
 //this function runs one game.
 //input: character from the file, void return type
 //all other functions to Play one round of a game
