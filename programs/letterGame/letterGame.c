@@ -13,8 +13,22 @@
 //this function provides intructions
 //on how to play the game
 void GameRules();
-
+//this function runs one game.
+//input character from the file, void return type
+//all other functions to play one round of a game
+//are called within the GuessTheLetter function
 void GuessTheLetter(char);
+// this function prompts the user to make a guess and returns that guess
+//this function is called from the inside of the GuessTheLetter
+//function described above
+char GetTheGuess();
+// this function take two arguments, the guess from the player
+// and the solution letter from the file.
+// The function returns 1 if the guess matches the
+// solution and returns a 0 if they do not match.
+// This function also lets the user know if the guess comes alphobetically
+// before or after the answer.
+int CompareLetters(char, char);
 
 int main()
 {
