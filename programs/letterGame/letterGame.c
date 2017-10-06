@@ -5,6 +5,7 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <ctype.h>
 #define MAXGUESSES 5
 
 
@@ -36,16 +37,19 @@ int main()
 	//declare FILE pointer
 	int numGames, i = 0;
   char solution;
-
 	char letter;//letter from file
 
 	//display game rules
   GameRules();
 
 	//Ask and get number of games to play
-
+  printf("How many games would you like to play?\n");
+  scanf(" %d", &numGames);
 	//connect to the file HINT: use fopen
-
+  FILE * input;
+  input = fopen("letterList.txt", "r");
+  fscanf(input, " %c", &letter);
+  fprintf(input, "%c\n", letter);
 	//this for loop will allow the player to play more than one game
 	//without recompiling
 	for (i = 0; i < numGames; i++)
@@ -53,13 +57,14 @@ int main()
 		//get a solution letter from file - use fscanf
 		//change the solution to lowercase
 		//print the solution back onto the screen to test
-
+    printf("%c\n", tolower(letter));
 		//call the GuessTheLetter function and pass it the solution
-
+    // GuessTheLetter();
 
 	}
 
 	//close file pointer
+  fclose(input);
 	return 0;
 }
 //prints games rules
@@ -84,6 +89,7 @@ void GuessTheLetter(char solution)
 	{
 		//get a guess from the user  by calling the GetTheGuess function
 		//change the guess to lowercase
+
 	    	//win = call the function to compare the guess with the solution
 		numGuesses++;//count the number of guesses so far
 	}
