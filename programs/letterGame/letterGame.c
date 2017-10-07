@@ -1,7 +1,8 @@
 
 
-//add name , date, and description here
-
+//Juan Perez
+//October 7, 2017
+//Letter Guessing Game
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
