@@ -57,7 +57,7 @@ int main()
 		//change the solution to lowercase
     solution = tolower(letter);
 		//print the solution back onto the screen to test
-    printf("\nThe letter is %c\n", tolower(letter));
+    // printf("\nThe letter is %c\n", tolower(letter));
 		//call the GuessTheLetter function and pass it the solution
     GuessTheLetter(solution);
 	}
@@ -99,14 +99,14 @@ void GuessTheLetter(char solution) {
     printf("\nSorry, you lose...\n");
   }
 }
-
+//This function get a letter from user
 char GetTheGuess(){
   char guess;
   printf("\nGuess the letter: ");
   scanf(" %c", &guess);
   return guess;
 }
-
+//This function compares the user letter with the letter from file.
 int CompareLetters(char guess, char solution){
   if (guess == solution) {
     printf("\nCongrats! You Won!\n");
@@ -122,7 +122,7 @@ int CompareLetters(char guess, char solution){
   }
   return 0;
 }
-
+//This function prints stars just because.
 void printStars(){
   for (int i = 0; i < 30; i++) {
     printf("%c ", '*');
