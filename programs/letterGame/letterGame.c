@@ -35,22 +35,18 @@ int main()
 {
 	//declare additional variables
 	//declare FILE pointer
+  FILE * input;
 	int numGames, i = 0;
   char solution;
 	char letter;//letter from file
   char guess;
-
-
 	//display game rules
   GameRules();
-
 	//Ask and get number of games to play
   printf("How many games would you like to play?\n");
   scanf(" %d", &numGames);
 	//connect to the file HINT: use fopen
-  FILE * input;
   input = fopen("letterList.txt", "r");
-  fscanf(input, "%c\n", &letter);
 	//this for loop will allow the player to play more than one game
 	//without recompiling
 	for (i = 1; i <= numGames; i++)
@@ -63,7 +59,7 @@ int main()
 		//print the solution back onto the screen to test
     printf("The letter is %c\n", tolower(letter));
 		//call the GuessTheLetter function and pass it the solution
-    GuessTheLetter(guess);
+    GuessTheLetter(solution);
 	}
 	//close file pointer
   fclose(input);
@@ -84,42 +80,43 @@ void GameRules(){
 void GuessTheLetter(char solution) {
 	int win = 0;
 	int numGuesses = 0;
+  char guess;
+  char letter;
 	//declare additional variables
+
 	while (numGuesses < MAXGUESSES && win == 0) {
 		//get a guess from the user  by calling the GetTheGuess function
 		//change the guess to lowercase
-    GetTheGuess();
+    guess = GetTheGuess();
     //win = call the function to compare the guess with the solution
-		numGuesses++;//count the number of guesses so far
-    if (numGuesses > MAXGUESSES) {
-      printf("Sorry, you lose...\n");
-    }
+    win = CompareLetters(guess, solution);
+    numGuesses++;//count the number of guesses so far
 	}
-
   //use conditions to let the user know if they won or lost the round of the game
+  if (numGuesses >= MAXGUESSES) {
+    printf("Sorry, you lose...\n");
+  }
 }
 
 char GetTheGuess(){
   char guess;
-  char letter;
   printf("Guess the letter: \n");
   scanf(" %c", &guess);
-  CompareLetters(guess, letter);
   return guess;
 }
 
-int CompareLetters(char guess, char letter){
-  if (guess == letter) {
+int CompareLetters(char guess, char solution){
+  if (guess == solution) {
     printf("Congrats! You Won!\n");
     return 1;
-  } else if (guess < letter){
+  } else {
+    if (guess < solution){
       printf("The correct answer comes after your letter\n");
-      GetTheGuess();
-
-  } else if (guess < letter) {
+      return 0;
+    } if (guess > solution) {
       printf("The correct answer comes before your letter\n");
-      GetTheGuess();
-      
+      return 0;
+    }
   }
   return 0;
 }
