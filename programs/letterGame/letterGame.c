@@ -7,9 +7,6 @@
 #include <stdio.h>
 #include <ctype.h>
 #define MAXGUESSES 5
-
-
-
 //FUNCTION PROTOTYPES
 //this function provides intructions
 //on how to play the game
@@ -30,6 +27,8 @@ char GetTheGuess();
 // This function also lets the user know if the guess comes alphobetically
 // before or after the answer.
 int CompareLetters(char, char);
+//this function prints stars in a loop
+void printStars();
 
 int main()
 {
@@ -43,21 +42,22 @@ int main()
 	//display game rules
   GameRules();
 	//Ask and get number of games to play
-  printf("How many games would you like to play?\n");
+  printf("\nHow many games would you like to play? ");
   scanf(" %d", &numGames);
+
 	//connect to the file HINT: use fopen
   input = fopen("letterList.txt", "r");
 	//this for loop will allow the player to play more than one game
 	//without recompiling
 	for (i = 1; i <= numGames; i++)
 	{
-    printf("Get ready to play game %d\n", i);
+    printf("\nGet ready to play game %d\n", i);
 		//get a solution letter from file - use fscanf
     fscanf(input, "%c\n", &letter);
 		//change the solution to lowercase
     solution = tolower(letter);
 		//print the solution back onto the screen to test
-    printf("The letter is %c\n", tolower(letter));
+    printf("\nThe letter is %c\n", tolower(letter));
 		//call the GuessTheLetter function and pass it the solution
     GuessTheLetter(solution);
 	}
@@ -67,10 +67,12 @@ int main()
 }
 //prints games rules
 void GameRules(){
-  printf("Welcome to the Letter Guessing Game.\n");
-  printf("First, you will enter the number of fames you want to play (1 - 8)\n");
-  printf("For each game, you will have 5 chances to guess each letter\n");
-  printf("Let's begin: \n");
+  printStars();
+  printf("\nWelcome to the Letter Guessing Game.\n");
+  printf("\nFirst, you will enter the number of fames you want to play (1 - 8)\n");
+  printf("\nFor each game, you will have 5 chances to guess each letter\n");
+  printf("\nLet's begin! \n");
+  printStars();
 }
 //this function runs one game.
 //input: character from the file, void return type
@@ -94,29 +96,35 @@ void GuessTheLetter(char solution) {
 	}
   //use conditions to let the user know if they won or lost the round of the game
   if (numGuesses >= MAXGUESSES) {
-    printf("Sorry, you lose...\n");
+    printf("\nSorry, you lose...\n");
   }
 }
 
 char GetTheGuess(){
   char guess;
-  printf("Guess the letter: \n");
+  printf("\nGuess the letter: ");
   scanf(" %c", &guess);
   return guess;
 }
 
 int CompareLetters(char guess, char solution){
   if (guess == solution) {
-    printf("Congrats! You Won!\n");
+    printf("\nCongrats! You Won!\n");
     return 1;
   } else {
     if (guess < solution){
-      printf("The correct answer comes after your letter\n");
+      printf("\nThe correct answer comes after your letter\n");
       return 0;
     } if (guess > solution) {
-      printf("The correct answer comes before your letter\n");
+      printf("\nThe correct answer comes before your letter\n");
       return 0;
     }
   }
   return 0;
+}
+
+void printStars(){
+  for (int i = 0; i < 30; i++) {
+    printf("%c ", '*');
+  }
 }
