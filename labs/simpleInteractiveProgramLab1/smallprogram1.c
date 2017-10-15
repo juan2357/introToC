@@ -15,8 +15,8 @@ int main(void) {
   double number;
 
   printf("Please enter a number: ");
-  scanf(" %lf", &number);
-  printf("The product of %.0f and 3 is %.0f\n", number, (number)*3);
+  scanf(" %lf", &number); //asking user for a number
+  printf("The product of %.0f and 3 is %.0f\n", number, (number)*3); // displaying the result of
 
   char letter;
 
