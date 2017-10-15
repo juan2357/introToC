@@ -84,7 +84,6 @@ void GuessTheLetter(char solution) {
 	int win = 0;
 	int numGuesses = 0;
   char guess;
-  char letter;
 	//declare additional variables
 
 	while (numGuesses < MAXGUESSES && win == 0) {
@@ -96,9 +95,12 @@ void GuessTheLetter(char solution) {
     numGuesses++;//count the number of guesses so far
 	}
   //use conditions to let the user know if they won or lost the round of the game
-  if (numGuesses >= MAXGUESSES) {
-    printf("\nSorry, you lose...\n");
-  }
+  // if (numGuesses >= MAXGUESSES) {
+  //   printf("\nSorry, you lose...\n");
+  // }
+
+    numGuesses >= MAXGUESSES ? printf("\nSorry, you lose...\n"): printf("Try again");
+
 }
 //This function get a letter from user
 char GetTheGuess(){
