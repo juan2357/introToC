@@ -12,11 +12,20 @@
 int getNum(int a);
 
 
+
 int main() {
   int num;
 
+
   num = getNum(num);
   printf("%d\n", num);
+
+  int i = 1;
+  while (i <= num) {
+    printf("%d. FAU Owls - Hoot Hoot\n", i);
+    i++;
+  }
+
 
   return 0;
 }
