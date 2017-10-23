@@ -20,8 +20,22 @@ void Pay(double *depositPtr, double choiceCost);
 //calculates the amount of leftover from your deposits
 void GetChange(double *depositPtr, double choiceCost);
 //Asks the user if they want another app
-void DoItAgain(char *quitPtr); 
+void DoItAgain(char *quitPtr);
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <ctype.h>
+
+int main() {
+
+  double *depositPtr;
+  double deposit = 0;
+  depositPtr = &deposit;
+
+
+  printf("Welcome to THE APP STORE\n\n");
+
+  printf("You have $%.2f in your bank.\n\n", *depositPtr);
+
+  return 0;
+}
