@@ -75,9 +75,10 @@ void DisplayApps(char *selectionPtr) {
   printf("T--Tap Menu         $ 399.99\n");
   printf("M--MineCraft        $   6.99\n");
   printf("Please enter a selection: ");
-  scanf(" %c", tolower(&selection));
+  scanf(" %c", &selection);
   printf("you selected %c\n", selection);
   *selectionPtr = selection;
+
 }
 
 void SetCost(char selection, double *costPtr){
@@ -152,5 +153,5 @@ void GetChange(double *depositPtr, double choiceCost){
 void DoItAgain(char *quitPtr) {
   char quit;
   printf("Would you like to continue (Y/N)? \n");
-  scanf("%c\n", tolower(&quit));
+  scanf("%c\n", &quit);
 }
