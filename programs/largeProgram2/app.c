@@ -29,38 +29,35 @@ void DoItAgain(char *quitPtr);
 int main() {
 
   double deposit = 0,
-         depositPtr = 0;
+         depositPtr = 0,
          cost = 0,
-         costPtr = 0;
+         costPtr = 0,
          choiceCost = 0;
-  char selection = '',
-       selectionPtr = '',
+  char selection,
+       selectionPtr,
        quit = 'y',
-       quitPtr = '',
+       quitPtr;
 
 
   printf("Welcome to THE APP STORE\n\n");
 
-  printf("You have $%.2f in your bank.\n\n", &deposit);
+  printf("You have $%.2f in your bank.\n\n", deposit);
 
   do {
 
     DisplayApps(&selection);
 
-
     SetCost(selection, &cost);
 
-      int compare;
-      compare = Compare(*depositPtr, choiceCost);
-      for (compare = 0; compare <= 1; compare++) {
-        PaymentOptions(&deposit, cost);
-        printf("You have $%.2f in your bank.\n\n", deposit);
-      }
+    Pay(&depositPtr, choiceCost);
 
-        GetChange(costPtr, cost);
-        Pay(depositPtr, choiceCost);
-        DoItAgain(&quit);
-  } while (*quitPtr == 'y');
+    PaymentOptions(&deposit, cost);
+
+    GetChange(&costPtr, cost);
+
+    DoItAgain(&quit);
+
+  } while (quit == 'y');
   return 0;
 }
 
@@ -130,7 +127,6 @@ void PaymentOptions(double *depositPtr, double cost){
       printf("You have deposited $10.00\n");
       break;
   }
-
 }
 
 int Compare(double deposit, double choiceCost){
@@ -142,10 +138,9 @@ int Compare(double deposit, double choiceCost){
 }
 
 void Pay(double *depositPtr, double choiceCost){
-  double cost;
-  cost = *depositPtr - cost;
-
-  printf("You paid %.2f\n", choiceCost);
+  while (Compare(*depositPtr, choiceCost) == 0) {
+    PaymentOptions(depositPtr, choiceCost);
+  }
 }
 
 void GetChange(double *depositPtr, double choiceCost){
@@ -155,7 +150,6 @@ void GetChange(double *depositPtr, double choiceCost){
 }
 
 void DoItAgain(char *quitPtr) {
-
   printf("Would you like to continue (Y/N)? ");
   scanf(" %c", quitPtr);
 }
