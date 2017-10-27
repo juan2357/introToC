@@ -49,11 +49,11 @@ int main() {
 
     SetCost(selection, &cost);
 
-    Pay(&depositPtr, choiceCost);
+    PaymentOptions(&depositPtr, cost);
 
-    PaymentOptions(&deposit, cost);
+    Pay(&depositPtr, cost);
 
-    GetChange(&costPtr, cost);
+    GetChange(&depositPtr, cost);
 
     DoItAgain(&quit);
 
@@ -97,7 +97,7 @@ void SetCost(char selection, double *costPtr){
       cost = 6.99;
   }
     printf("The item costs %.2f\n", cost);
-    *costPtr = cost;
+    *costPtr = tolower(cost);
 }
 
 void PaymentOptions(double *depositPtr, double cost){
@@ -138,9 +138,11 @@ int Compare(double deposit, double choiceCost){
 }
 
 void Pay(double *depositPtr, double choiceCost){
+
   while (Compare(*depositPtr, choiceCost) == 0) {
     PaymentOptions(depositPtr, choiceCost);
   }
+
 }
 
 void GetChange(double *depositPtr, double choiceCost){
@@ -152,4 +154,5 @@ void GetChange(double *depositPtr, double choiceCost){
 void DoItAgain(char *quitPtr) {
   printf("Would you like to continue (Y/N)? ");
   scanf(" %c", quitPtr);
+  *quitPtr = tolower(*quitPtr);
 }
