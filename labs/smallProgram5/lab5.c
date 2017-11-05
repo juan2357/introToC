@@ -19,7 +19,7 @@ int main() {
   FILE * writePtr;
   readPtr = fopen("numInput.txt", "r");
   writePtr = fopen("resOut.txt", "w");
-
+  //assigning GetNum to num to use in for loop.
   num = GetNum();
   //Use a loop to read the integers into the
   //array from the input file (fscanf)
@@ -28,18 +28,18 @@ int main() {
     // Use a loop to print the array onto the screen in a column
     printf("Number is: %d\n\n", arrNum[i]);
   }
+  //assigning SumOfArray to sum to print and write to file
   sum = SumOfArray(arrNum, num);
   //printing the sum of the array.
   printf("The sum of the numbers in the array is: %d\n\n", sum);
   // write the sum to the resOut.txt
   fprintf(writePtr, "%d\n", sum);
-
+  //closing files.
   fclose(readPtr);
   fclose(writePtr);
   return 0;
-
 }
-
+//get num from user
 int GetNum(){
   int num;
   printf("Please enter an integer: ");
