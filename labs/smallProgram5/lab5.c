@@ -6,26 +6,38 @@
 #define SIZE 20
 #include <stdio.h>
 //get num from user
-int GetNum(int num);
+int GetNum();
+
+
+
 
 int main() {
 
   int arrNum[SIZE];
-  int num;
+  int num = 0;
+  FILE * ptr;
+  ptr = fopen("numInput.txt", "r");
 
   num = GetNum();
+  /*Use a loop to read the integers into the array
+  from the input file (fscanf)*/
+  for (int i = 0; i < num; i++) {
+    fscanf(ptr, "%d", &arrNum[i]);
+    printf("Number is: %d\n\n", arrNum[i]);
+  }
 
-  printf("%d\n", num);
 
+  fclose(ptr);
   return 0;
 
 }
 
-GetNum(int num){
+int GetNum(){
 
   int num;
 
   printf("Please enter an integer: ");
-  scanf("%d\n", &num);
+  scanf("%d", &num);
+  printf("%d\n", num);//for testing
   return num;
 }
