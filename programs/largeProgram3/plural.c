@@ -13,6 +13,8 @@
 void GreetUser();
 //Get word from the User
 void GetWord(char a[]);
+//Changes word to uppercase
+void MakeUpper(char *a);
 
 int main() {
   //declaring variables
@@ -29,6 +31,8 @@ int main() {
     }
     //word from userInput
     GetWord(word);
+    //Changes word to uppercase
+    MakeUpper(word);
 
   } while (tolower(userChoice) == 'y');
   return 0;
@@ -44,5 +48,15 @@ void GetWord(char a[]){
   printf("Enter a word: ");
   scanf(" %s", a);
   printf("your word is %s\n", a);
-
+}
+//Changes word to uppercase
+void MakeUpper(char *a){
+  int i = 0;
+  while (a[i] != '\0'){
+    if (a[i] >= 'a' && a[i] <= 'z'){
+      a[i] -=32;
+    }
+    i++;
+  }
+  printf("your word in uppercase is %s\n", a);
 }
