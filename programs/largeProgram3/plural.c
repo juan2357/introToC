@@ -15,11 +15,14 @@ void GreetUser();
 void GetWord(char a[]);
 //Changes word to uppercase
 void MakeUpper(char *a);
+//Save word to a FILE
+void SaveWord(char a[], FILE * b);
 
 int main() {
   //declaring variables
   char userChoice;
   char word[SIZE] = " ";
+  FILE * outPtr;
   //User greeting and instructions
   GreetUser();
   //Asks user to continue
@@ -33,8 +36,9 @@ int main() {
     GetWord(word);
     //Changes word to uppercase
     MakeUpper(word);
-
+    SaveWord(word, outPtr);
   } while (tolower(userChoice) == 'y');
+  fclose(outPtr);
   return 0;
 }
 //User greeting and instructions
@@ -59,4 +63,9 @@ void MakeUpper(char *a){
     i++;
   }
   printf("your word in uppercase is %s\n", a);
+}
+//Save word to a FILE
+void SaveWord(char a[], FILE * b){
+  b = fopen("pluralWords.txt", "a");
+  fprintf(b, "%s", a);
 }
