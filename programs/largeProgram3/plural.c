@@ -15,8 +15,12 @@ void GreetUser();
 void GetWord(char a[]);
 //Changes word to uppercase
 void MakeUpper(char *a);
-//takes word that ends in y and changes to 'ies'
-void RuleOne(char * a);
+//concatenates 's' to word
+void RuleOne(char *a);
+//concatenates 'es' to word.
+void RuleTwo(char *a);
+//concatenates 'ies' to words ending in y.
+void RuleThree(char *a);
 //Save word to a FILE
 void SaveWord(char a[], FILE * b);
 
@@ -38,8 +42,12 @@ int main() {
     GetWord(word);
     //Changes word to uppercase
     MakeUpper(word);
+    //concatenates 's' to word
+    // RuleOne(word);
     //takes word that ends in y and changes to 'ies'
-    RuleOne(word);
+    // RuleTwo(word);
+    //concatenates 'ies' to words ending in y.
+    RuleThree(word);
     //Save word to a FILE
     SaveWord(strcat(word, "\n"), outPtr);
   } while (tolower(userChoice) == 'y');
@@ -69,16 +77,28 @@ void MakeUpper(char *a){
   }
   printf("your word in uppercase is %s\n", a);
 }
-//takes word that ends in y and changes to 'ies'
-// void RuleOne(char * a){
-//   if (a[strlen(a) - 1] == 'y') {
-//     a[strlen(a) - 1] = 'i';
-//     a[strlen(a)] = 'e';
-//     a[strlen(a) + 1] = 's';
-//     a[strlen(a) + 2] = '\0';
-//   }
-//   printf("The plural of your word is: %s\n", a);
-// }
+//concatenates 's' to word
+void RuleOne(char *a){
+  strcat(a, "S");
+  printf("The plural of your word is %s\n", a);
+}
+//concatenates 'es' to word.
+void RuleTwo(char * a){
+  strcat(a, "ES");
+  printf("The plural of your word is %s\n", a);
+}
+// takes word that ends in y and changes to 'ies'
+void RuleThree(char * a){
+  // if (a[strlen(a) - 1] == 'y') {
+  //   a[strlen(a) - 1] = 'i';
+  //   a[strlen(a)] = 'e';
+  //   a[strlen(a) + 1] = 's';
+  //   a[strlen(a) + 2] = '\0';
+  // }
+  strcat(a, "IES\0");
+  printf("The plural of your word is: %s\n", a);
+}
+
 //Save word to a FILE
 void SaveWord(char a[], FILE * b){
   b = fopen("pluralWords.txt", "a");
