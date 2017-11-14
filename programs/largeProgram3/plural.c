@@ -15,6 +15,8 @@ void GreetUser();
 void GetWord(char a[]);
 //Changes word to uppercase
 void MakeUpper(char *a);
+//takes word that ends in y and changes to 'ies'
+void RuleOne(char * a);
 //Save word to a FILE
 void SaveWord(char a[], FILE * b);
 
@@ -36,6 +38,8 @@ int main() {
     GetWord(word);
     //Changes word to uppercase
     MakeUpper(word);
+    //takes word that ends in y and changes to 'ies'
+    RuleOne(word);
     //Save word to a FILE
     SaveWord(strcat(word, "\n"), outPtr);
   } while (tolower(userChoice) == 'y');
@@ -65,6 +69,16 @@ void MakeUpper(char *a){
   }
   printf("your word in uppercase is %s\n", a);
 }
+//takes word that ends in y and changes to 'ies'
+// void RuleOne(char * a){
+//   if (a[strlen(a) - 1] == 'y') {
+//     a[strlen(a) - 1] = 'i';
+//     a[strlen(a)] = 'e';
+//     a[strlen(a) + 1] = 's';
+//     a[strlen(a) + 2] = '\0';
+//   }
+//   printf("The plural of your word is: %s\n", a);
+// }
 //Save word to a FILE
 void SaveWord(char a[], FILE * b){
   b = fopen("pluralWords.txt", "a");
