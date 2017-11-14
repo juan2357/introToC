@@ -22,15 +22,15 @@ int main() {
   GreetUser();
   //Asks user to continue
   do {
-    printf("Would you like to enter a word? ");
+    printf("Would you like to enter a word? Y (YES) or N (NO) ");
     scanf(" %c", &userChoice);
-    if (userChoice == 'n') {
+    if (tolower(userChoice) == 'n') {
       return 0;
     }
     //word from userInput
     GetWord(word);
 
-  } while (userChoice == 'y');
+  } while (tolower(userChoice) == 'y');
   return 0;
 }
 //User greeting and instructions
