@@ -36,7 +36,8 @@ int main() {
     GetWord(word);
     //Changes word to uppercase
     MakeUpper(word);
-    SaveWord(word, outPtr);
+    //Save word to a FILE
+    SaveWord(strcat(word, "\n"), outPtr);
   } while (tolower(userChoice) == 'y');
   fclose(outPtr);
   return 0;
