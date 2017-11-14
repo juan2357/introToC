@@ -22,7 +22,7 @@ int main() {
   //declaring variables
   char userChoice;
   char word[SIZE] = " ";
-  FILE * outPtr;
+  FILE * outPtr = NULL;
   //User greeting and instructions
   GreetUser();
   //Asks user to continue
