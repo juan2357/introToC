@@ -21,6 +21,8 @@ void RuleOne(char *a);
 void RuleTwo(char *a);
 //concatenates 'ies' to words ending in y.
 void RuleThree(char *a);
+//make word plural depending on user userInput
+void Pluralize(char a[]);
 //Save word to a FILE
 void SaveWord(char a[], FILE * b);
 
@@ -42,9 +44,8 @@ int main() {
     GetWord(word);
     //Changes word to uppercase
     MakeUpper(word);
-
-  
-
+    //make word plural depending on user userInput
+    Pluralize(word);
     //Save word to a FILE
     SaveWord(strcat(word, "\n"), outPtr);
   } while (tolower(userChoice) == 'y');
@@ -88,6 +89,18 @@ void RuleTwo(char * a){
 void RuleThree(char *a){
   strcat(a, "S");
   printf("The plural of your word is %s\n", a);
+}
+//make word plural depending on user userInput
+void Pluralize(char a[]){
+  if (a[strlen(a) - 1] == 'y') {
+    RuleOne(a);
+  } else if (a[strlen(a) - 1] == 's' ||
+            (a[strlen(a) - 1] == 'h' && a[strlen(a) - 2] == 'c') ||
+            (a[strlen(a) - 1] == 'h' && a[strlen(a) - 2] == 's')) {
+              RuleTwo(a);
+            } else {
+              RuleThree(a);
+            }
 }
 
 //Save word to a FILE
