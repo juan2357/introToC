@@ -92,11 +92,11 @@ void RuleThree(char *a){
 }
 //make word plural depending on user userInput
 void Pluralize(char a[]){
-  if (a[strlen(a) - 1] == 'y') {
+  if (a[strlen(a) - 1] == 'Y') {
     RuleOne(a);
-  } else if (a[strlen(a) - 1] == 's' ||
-            (a[strlen(a) - 1] == 'h' && a[strlen(a) - 2] == 'c') ||
-            (a[strlen(a) - 1] == 'h' && a[strlen(a) - 2] == 's')) {
+  } else if (a[strlen(a) - 1] == 'S' ||
+            (a[strlen(a) - 1] == 'H' && a[strlen(a) - 2] == 'C') ||
+            (a[strlen(a) - 1] == 'H' && a[strlen(a) - 2] == 'S')) {
               RuleTwo(a);
             } else {
               RuleThree(a);
