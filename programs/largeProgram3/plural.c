@@ -39,6 +39,7 @@ int main() {
     scanf(" %c", &userChoice);
     if (tolower(userChoice) == 'n') {
       printf("Saving words to file\n");
+      printf("Thank you for playing Pluralizer!!!\n");
       return 0;
     }
     //word from userInput
@@ -56,7 +57,7 @@ int main() {
 //User define functions
 //User greeting and instructions
 void GreetUser(){
-  printf("Welcome to pluralizer\n");
+  printf("Welcome to Pluralizer\n");
   printf("You can enter a word \n");
   printf("and I will give you the plural...\n");
 }
@@ -74,7 +75,7 @@ void MakeUpper(char *a){
     }
     i++;
   }
-  printf("your word in uppercase is %s\n", a);
+  printf("Your word in uppercase is %s\n", a);
 }
 // takes word that ends in y and changes to 'ies'
 void RuleOne(char *a){
