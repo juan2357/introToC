@@ -27,7 +27,7 @@ void Pluralize(char a[]);
 void SaveWord(char a[], FILE * b);
 
 int main() {
-  //declaring variables
+  //Declarations
   char userChoice;
   char word[SIZE] = " ";
   FILE * outPtr = NULL;
@@ -38,6 +38,7 @@ int main() {
     printf("Would you like to enter a word? Y (YES) or N (NO) ");
     scanf(" %c", &userChoice);
     if (tolower(userChoice) == 'n') {
+      printf("Saving words to file\n");
       return 0;
     }
     //word from userInput
@@ -52,6 +53,7 @@ int main() {
   fclose(outPtr);
   return 0;
 }
+//User define functions
 //User greeting and instructions
 void GreetUser(){
   printf("Welcome to pluralizer\n");
@@ -97,12 +99,11 @@ void Pluralize(char a[]){
   } else if (a[strlen(a) - 1] == 'S' ||
             (a[strlen(a) - 1] == 'H' && a[strlen(a) - 2] == 'C') ||
             (a[strlen(a) - 1] == 'H' && a[strlen(a) - 2] == 'S')) {
-              RuleTwo(a);
-            } else {
-              RuleThree(a);
-            }
+    RuleTwo(a);
+  } else {
+    RuleThree(a);
+  }
 }
-
 //Save word to a FILE
 void SaveWord(char a[], FILE * b){
   b = fopen("pluralWords.txt", "a");
